@@ -1,0 +1,1148 @@
+﻿<!DOCTYPE html>
+<html lang="tl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hibik ng Bayan — Talaan ng mga Bakas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --papel: #f5ecd8;
+        --tinta: #201c18;
+        --pula: #8d2925;
+        --ginto: #c39743;
+        --linya: #d6c49e;
+        --luntian: #485f4b;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        background: #161311;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: var(--papel);
+        color: var(--tinta);
+        font-family: "DM Sans", sans-serif;
+      }
+
+      .alitaptap {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .alitaptap i {
+        position: absolute;
+        bottom: -20px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #f8d879;
+        box-shadow: 0 0 7px 2px #f8d879, 0 0 18px 5px #dcae45;
+        animation: angat 8s linear infinite;
+        opacity: 0;
+      }
+
+      .alitaptap i:nth-child(1) { left: 3%; }
+      .alitaptap i:nth-child(2) { left: 10%; animation-delay: 2s; }
+      .alitaptap i:nth-child(3) { left: 18%; animation-delay: 4s; }
+      .alitaptap i:nth-child(4) { left: 25%; animation-delay: 1s; }
+      .alitaptap i:nth-child(5) { right: 3%; animation-delay: 3s; }
+      .alitaptap i:nth-child(6) { right: 10%; animation-delay: 1s; }
+      .alitaptap i:nth-child(7) { right: 18%; animation-delay: 5s; }
+      .alitaptap i:nth-child(8) { right: 25%; animation-delay: 2s; }
+
+      @keyframes angat {
+        0% {
+          transform: translate(0, 0) scale(0.5);
+          opacity: 0;
+        }
+
+        12% {
+          opacity: 0.9;
+        }
+
+        45% {
+          transform: translate(14px, -38vh) scale(1);
+          opacity: 0.75;
+        }
+
+        100% {
+          transform: translate(-10px, -112vh) scale(0.2);
+          opacity: 0;
+        }
+      }
+
+      .header {
+        position: relative;
+        isolation: isolate;
+        min-height: 410px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: #211a16;
+        color: #fff7e5;
+      }
+
+      .header:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image: linear-gradient(90deg, rgba(12, 10, 8, 0.85), rgba(12, 10, 8, 0.39) 46%, rgba(12, 10, 8, 0.17)), linear-gradient(0deg, rgba(12, 10, 8, 0.68), transparent 55%), url("Del-Torrano-wins-GSIS-grand-prize.jpeg");
+        background-size: cover;
+        background-position: center 15%;
+        filter: saturate(0.95) contrast(1.08);
+      }
+
+      .masthead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: min(1360px, 90%);
+        margin: auto;
+        padding: 22px 0;
+        border-bottom: 1px solid #fff7e577;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .masthead strong {
+        font: 400 25px "IM Fell English", serif;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
+
+      .isyu {
+        opacity: 0.8;
+      }
+
+      .header-content {
+        width: min(1360px, 90%);
+        margin: auto;
+        padding: 35px 0 58px;
+      }
+
+      .maliit {
+        color: #efc96d;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-bottom: 19px;
+      }
+
+      .header h1 {
+        max-width: 800px;
+        font: 400 clamp(48px, 8vw, 105px) / 0.9 "IM Fell English", serif;
+        letter-spacing: -0.04em;
+        text-shadow: 0 4px 20px #0009;
+      }
+
+      .subtitulo {
+        max-width: 570px;
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 2px solid var(--ginto);
+        font: italic clamp(18px, 2vw, 25px) / 1.25 "IM Fell English", serif;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        margin-top: 17px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        position: absolute;
+        right: 170px;
+      }
+
+      .meta span:before {
+        color: var(--ginto);
+        margin-right: 7px;
+      }
+
+      .pili-section {
+        position: relative;
+        z-index: 3;
+        padding: 58px 5% 63px;
+        background: #28221d;
+        color: #fff7e5;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .pili-section:before {
+        content: "✦  HIMAGSIKAN  ✦";
+        position: absolute;
+        inset: 17px 5%;
+        border: 1px solid #c3974355;
+        padding: 13px;
+        color: #c39743;
+        font: 12px "IM Fell English", serif;
+        letter-spacing: 0.28em;
+      }
+
+      .pili-section h2 {
+        position: relative;
+        font: 400 clamp(34px, 5vw, 58px) "IM Fell English", serif;
+      }
+
+      .pili-section p {
+        position: relative;
+        max-width: 650px;
+        margin: 12px auto 25px;
+        color: #dbcda9;
+        font: italic 19px "IM Fell English", serif;
+      }
+
+      .puntos {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 auto 28px;
+        padding: 10px 21px;
+        border-top: 1px solid var(--ginto);
+        border-bottom: 1px solid var(--ginto);
+        color: #efc96d;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .puntos strong {
+        font: 32px "IM Fell English", serif;
+        color: #fff7e5;
+      }
+
+      .pagpili {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .uri-btn {
+        min-width: 245px;
+        padding: 20px 24px;
+        border: 1px solid #c39743;
+        background: #382f27;
+        color: #fff7e5;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .uri-btn:hover {
+        background: var(--pula);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px #0005;
+      }
+
+      .uri-btn strong {
+        display: block;
+        font: 28px "IM Fell English", serif;
+      }
+
+      .uri-btn span {
+        display: block;
+        margin-top: 6px;
+        color: #dbcda9;
+        font-size: 11px;
+      }
+
+      .pili-result {
+        position: relative;
+        min-height: 22px;
+        margin-top: 20px;
+        color: #efc96d;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .pataas {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        z-index: 30;
+        width: 48px;
+        height: 48px;
+        border: 1px solid var(--ginto);
+        border-radius: 50%;
+        background: var(--pula);
+        color: #fff7e5;
+        font-size: 22px;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(15px);
+        transition: 0.3s;
+        box-shadow: 0 6px 18px #201c1866;
+      }
+
+      .pataas.litaw {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
+
+      .pataas:hover {
+        background: #b04438;
+        transform: translateY(-4px);
+      }
+
+      .mga-card {
+        display: none;
+        background: var(--papel);
+        padding: 58px 5% 65px;
+        animation: pasok 0.6s ease both;
+      }
+
+      .mga-card.bukas {
+        display: block;
+      }
+
+      @keyframes pasok {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .stamp-wrap {
+        max-width: 1360px;
+        margin: auto;
+      }
+
+      .stamp-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 25px;
+        border-bottom: 1px solid var(--linya);
+        padding-bottom: 17px;
+        margin-bottom: 30px;
+      }
+
+      .etiketa {
+        color: var(--pula);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .stamp-head h2 {
+        font: 400 clamp(32px, 4vw, 54px) / 1 "IM Fell English", serif;
+      }
+
+      .stamp-head p {
+        max-width: 350px;
+        color: #75624a;
+        font: italic 18px "IM Fell English", serif;
+        text-align: right;
+      }
+
+      .impormasyon {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--linya);
+        border-bottom: 1px solid var(--linya);
+        margin-bottom: 38px;
+      }
+
+      .detalye {
+        padding: 16px 18px;
+        border-right: 1px solid var(--linya);
+      }
+
+      .detalye:last-child {
+        border-right: 0;
+      }
+
+      .label {
+        color: var(--pula);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .halaga {
+        margin-top: 7px;
+        font: 18px / 1.18 "IM Fell English", serif;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+      }
+
+      .card {
+        position: relative;
+        padding: 9px;
+        background: #fffaf0;
+        cursor: pointer;
+        transition: 0.25s;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 26px #493b2620;
+      }
+
+      body.modal-open {
+        overflow: hidden;
+      }
+
+      .card-modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 120;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(28, 24, 21, 0.74);
+      }
+
+      .card-modal-overlay.open {
+        display: flex;
+      }
+
+      .card-modal-shell {
+        position: relative;
+        width: min(720px, 92vw);
+      }
+
+      .card-modal-close {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        width: 38px;
+        height: 38px;
+        border: 0;
+        border-radius: 50%;
+        background: var(--pula);
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+      }
+
+      .modal-card {
+        position: relative;
+        width: 100%;
+        padding: 12px;
+        background: #fffaf0;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+        animation: modalIn 0.25s ease both;
+      }
+
+      .modal-card .linggo {
+        margin: 16px 3px 10px;
+        font-size: 30px;
+      }
+
+      .modal-card .detalyeng-linggo {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      @keyframes modalIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.97);
+        }
+
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .modal-card .larawan {
+        height: 280px;
+      }
+
+      .larawan {
+        height: 145px;
+        overflow: hidden;
+        background: #77867d;
+      }
+
+      .larawan img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center 42%;
+        filter: saturate(0.92) contrast(1.05);
+      }
+
+      .badge {
+        position: absolute;
+        top: 17px;
+        right: 15px;
+        padding: 4px 7px;
+        background: var(--pula);
+        color: #fff8e8;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .linggo {
+        margin: 13px 3px 8px;
+        font: 21px "IM Fell English", serif;
+      }
+
+      .detalyeng-linggo {
+        padding: 0 3px;
+        color: #756b5e;
+        font-size: 10px;
+        line-height: 1.75;
+      }
+
+      .selyo {
+        width: 41px;
+        height: 41px;
+        margin: 11px auto 2px;
+        border: 1px dashed #ae9d7a;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a38750;
+        font-size: 17px;
+      }
+
+      .tapos {
+        background: #f7e8bf;
+      }
+
+      .tapos .selyo {
+        background: var(--ginto);
+        border-color: var(--ginto);
+        color: #fff;
+        transform: rotate(8deg) scale(1.08);
+      }
+
+      .pag-unlad {
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        margin-top: 45px;
+        padding-top: 18px;
+        border-top: 1px solid var(--linya);
+      }
+
+      .pag-unlad h3 {
+        font: 24px "IM Fell English", serif;
+        white-space: nowrap;
+      }
+
+      .bar {
+        height: 8px;
+        flex: 1;
+        background: #decfb0;
+      }
+
+      .puno {
+        height: 100%;
+        width: 0;
+        background: var(--pula);
+        transition: width 0.4s;
+      }
+
+      .bilang {
+        color: var(--pula);
+        font-size: 10px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .recitasyon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-top: 14px;
+        padding: 12px 14px;
+        border: 1px solid var(--linya);
+        background: #fffaf0;
+        color: #75624a;
+        font-size: 11px;
+      }
+
+      .recitasyon strong {
+        color: var(--pula);
+        font-size: 18px;
+      }
+
+      footer {
+        padding: 23px 5%;
+        background: var(--tinta);
+        color: #f6ead0;
+        text-align: center;
+        font: italic 17px "IM Fell English", serif;
+      }
+
+      @media (max-width: 950px) {
+        .grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .impormasyon {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .detalye:nth-child(2) {
+          border-right: 0;
+        }
+
+        .detalye:nth-child(-n+2) {
+          border-bottom: 1px solid var(--linya);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .header {
+          min-height: 390px;
+        }
+
+        .masthead {
+          width: 90%;
+          padding: 18px 0;
+        }
+
+        .masthead strong {
+          font-size: 20px;
+        }
+
+        .isyu {
+          font-size: 8px;
+        }
+
+        .header-content {
+          width: 90%;
+          padding: 28px 0 50px;
+        }
+
+        .meta {
+          gap: 12px;
+          line-height: 1.5;
+        }
+
+        .pili-section {
+          padding: 50px 5%;
+        }
+
+        .uri-btn {
+          min-width: 205px;
+        }
+
+        .mga-card {
+          padding: 40px 5%;
+        }
+
+        .stamp-head {
+          display: block;
+        }
+
+        .stamp-head p {
+          text-align: left;
+          margin-top: 14px;
+        }
+
+        .impormasyon {
+          grid-template-columns: 1fr;
+          margin-bottom: 30px;
+        }
+
+        .detalye {
+          border-right: 0;
+          border-bottom: 1px solid var(--linya);
+        }
+
+        .detalye:last-child {
+          border-bottom: 0;
+        }
+
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 11px;
+        }
+
+        .larawan {
+          height: 103px;
+        }
+
+        .linggo {
+          font-size: 18px;
+        }
+
+        .detalyeng-linggo {
+          font-size: 9px;
+        }
+
+        .pag-unlad {
+          display: block;
+        }
+
+        .pag-unlad h3 {
+          margin-bottom: 11px;
+        }
+
+        .bilang {
+          display: block;
+          margin-top: 9px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .alitaptap {
+          display: none;
+        }
+
+        .mga-card,
+        .card,
+        .uri-btn {
+          animation: none;
+          transition: none;
+        }
+      }
+
+      .uri-btn[aria-pressed="true"] {
+        background: var(--pula);
+        box-shadow: 0 10px 25px #0005;
+        transform: translateY(-3px);
+      }
+
+      .patas-link {
+        display: inline-block;
+        margin-top: 24px;
+        color: #efc96d;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      .patas-link:hover {
+        color: #fff7e5;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .pataas {
+          right: 16px;
+          bottom: 16px;
+        }
+      }
+
+      /* Static weekly recitation cards: edit the text directly in HTML. */
+      .card { cursor: pointer; }
+      .card .selyo { display: none; }
+      .card .detalyeng-linggo { min-height: 76px; }
+      .editable { border-bottom: 1px dashed var(--ginto); }
+
+      @media (max-width: 600px) {
+        .modal-card .larawan {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="top">
+    <div class="alitaptap" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+
+    <header class="header">
+      <div class="masthead">
+        <strong style="font-size:30px;">Hibik ng Bayan</strong>
+        <span class="isyu">Talaan ng mga Pakikilahok sa Bayan</span>
+        <span class="isyu">Ikalawang Termino</span>
+      </div>
+
+      <div class="header-content">
+        <div class="maliit">WE EXCEL, WE SERVE, WE LEAD</div>
+        <h1>Pag-aaral ng<br>Kasaysayang at Lipunang Pilipino</h1>
+        <p class="subtitulo">"History is part of our birthright. We must claim it back and make it transform our lives" (Ocampo, 2005)</p>
+        <div class="meta">
+          <span>Pusong Itinanghal - Torrano, Delmar Jacob (2026)</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="pili-section">
+      <h2>Pumili ng iyong paglalakbay</h2>
+      <p>Isulat nang mano-mano ang detalye ng bawat recitation sa mga lingguhang tala. Pumili ng stamp card upang makita ang iyong talaan.</p>
+      <div class="puntos">Kabuuang puntos ng lahat ng recitation: <strong id="kabuuangPuntos">10</strong></div>
+      <div class="pagpili">
+        <button class="uri-btn" id="btn-indibidwal" aria-pressed="false" onclick="buksan('indibidwal')">
+          <strong>Indibidwal</strong>
+          <span>Sariling talâ at selyo</span>
+        </button>
+        <button class="uri-btn" id="btn-pangkatan" aria-pressed="false" onclick="buksan('pangkatan')">
+          <strong>Pangkatan</strong>
+          <span>Sabay-sabay na paglalakbay</span>
+        </button>
+      </div>
+      <div class="pili-result" id="piliResult"></div>
+      <a class="patas-link" href="#top">↑ Bumalik sa pangunahing pahina</a>
+    </section>
+
+    <section class="mga-card" id="indibidwal">
+      <div class="stamp-wrap">
+        <div class="stamp-head">
+          <div>
+            <div class="etiketa">Stamp card · Indibidwal</div>
+            <h2>Talaarawan ng Sariling Paglalakbay</h2>
+          </div>
+          <p>Isang personal na tala ng bawat pagbigkas, sagot, at hakbang sa kasaysayan.</p>
+        </div>
+
+        <div class="impormasyon">
+          <div class="detalye">
+            <div class="label">Pangalan</div>
+            <div class="halaga">Alemania, Jeyzzer Amiel S.</div>
+          </div>
+          <div class="detalye">
+            <div class="label">Baitang at Pangkat</div>
+            <div class="halaga">11 – Mobius</div>
+          </div>
+          <div class="detalye">
+            <div class="label">Uri</div>
+            <div class="halaga">Indibidwal</div>
+          </div>
+          <div class="detalye">
+            <div class="label">Kabuuang puntos</div>
+            <div class="halaga" id="puntosIndibidwal">10 puntos</div>
+          </div>
+        </div>
+
+        <div class="grid" id="gridIndibidwal">
+          <article class="card">
+            <div class="badge">Linggo 1</div>
+            <div class="larawan"><img src="week1&2.jpg"></div>
+            <div class="linggo">Linggo 1</div>
+            <div class="detalyeng-linggo">Petsa: Sept 16 - 18 & Sept 21 - 23</span></span><br>Gawain: Talakayan patungkol sa mga Lagumang Pagsusulit at Terminong Exam</span><br>Puntos: 4</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 2</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 2</div>
+            <div class="detalyeng-linggo">Petsa: Sept 24, 25 at Sept 28 - 30 </span></span><br>Gawain: Awdisyon Patungkol sa Kasaysayan at Pagbalik-Aral sa Awdisyon</span><br>Puntos: 6</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 3</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 3</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 4</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 4</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 5</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 5</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 6</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 6</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 7</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 7</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 8</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 8</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 9</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 9</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 10</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 10</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 11</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 11</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 12</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 12</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 13</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 13</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 14</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 14</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 15</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 15</div>
+            <div class="detalyeng-linggo">Petsa: ________________</span></span><br>Gawain: ________________</span><br>Puntos: ________</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mga-card" id="pangkatan">
+      <div class="stamp-wrap">
+        <div class="stamp-head">
+          <div>
+            <div class="etiketa">Stamp card · Pangkatan</div>
+            <h2>Talaarawan ng Sama-samang Paglalakbay</h2>
+          </div>
+          <p>Isang kolektibong alaala ng mga tinig, ideya, at ambag ng buong pangkat.</p>
+        </div>
+
+        <div class="impormasyon">
+          <div class="detalye">
+            <div class="label">Pangkat</div>
+            <div class="halaga">11 – Mobius</div>
+          </div>
+          <div class="detalye">
+            <div class="label">Uri</div>
+            <div class="halaga">Pangkatan</div>
+          </div>
+          <div class="detalye">
+            <div class="label">Mga kasapi</div>
+            <div class="halaga">________________</div>
+          </div>
+          <div class="detalye">
+            <div class="label">Kabuuang puntos</div>
+            <div class="halaga" id="puntosPangkatan">0 puntos</div>
+          </div>
+        </div>
+
+        <div class="grid" id="gridPangkatan">
+          <article class="card">
+            <div class="badge">Linggo 1</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 1</div>
+            <div class="detalyeng-linggo">Petsa:________________ <br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 2</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 2</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 3</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 3</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 4</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 4</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 5</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 5</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 6</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 6</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 7</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 7</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 8</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 8</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 9</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 9</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 10</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 10</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 11</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 11</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 12</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 12</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 13</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 13</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 14</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 14</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+          <article class="card">
+            <div class="badge">Linggo 15</div>
+            <div class="larawan"><img src="48a9e6104def379b1cd4cf3f916f4686.jpg" ></div>
+            <div class="linggo">Linggo 15</div>
+            <div class="detalyeng-linggo">Petsa: ________________<br>Gawain: ________________<br>Puntos: ________</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="card-modal-overlay" id="cardModalOverlay" aria-hidden="true">
+      <div class="card-modal-shell">
+        <button class="card-modal-close" id="cardModalClose" aria-label="Isara ang card">×</button>
+        <div id="cardModalContent"></div>
+      </div>
+    </div>
+
+    <footer>Gawa ni Jeyzzer Amiel S. Alemania</footer>
+    <button class="pataas" id="pataas" aria-label="Bumalik sa itaas" title="Bumalik sa itaas">↑</button>
+
+    <script>
+      function buksan(uri) {
+        document.querySelectorAll('.mga-card').forEach((x) => x.classList.remove('bukas'));
+        document.querySelectorAll('.uri-btn').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+
+        const seksyon = document.getElementById(uri);
+        const button = document.getElementById('btn-' + uri);
+        seksyon.classList.add('bukas');
+        button.setAttribute('aria-pressed', 'true');
+        document.getElementById('piliResult').textContent = `Bukas na ang hiwalay na stamp card para sa ${uri}.`;
+        document.getElementById('jumpMenu').value = uri;
+        setTimeout(() => seksyon.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40);
+      }
+
+      const modalOverlay = document.getElementById('cardModalOverlay');
+      const modalContent = document.getElementById('cardModalContent');
+      const modalClose = document.getElementById('cardModalClose');
+
+      function openCardModal(card) {
+        const clone = card.cloneNode(true);
+        clone.classList.add('modal-card');
+        clone.classList.remove('card');
+        clone.style.cursor = 'default';
+
+        modalContent.innerHTML = '';
+        modalContent.appendChild(clone);
+        modalOverlay.classList.add('open');
+        modalOverlay.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+      }
+
+      function closeCardModal() {
+        modalOverlay.classList.remove('open');
+        modalOverlay.setAttribute('aria-hidden', 'true');
+        modalContent.innerHTML = '';
+        document.body.classList.remove('modal-open');
+      }
+
+      document.querySelectorAll('.card').forEach((card) => {
+        card.addEventListener('click', (event) => {
+          event.stopPropagation();
+          openCardModal(card);
+        });
+      });
+
+      modalOverlay.addEventListener('click', (event) => {
+        if (event.target === modalOverlay) {
+          closeCardModal();
+        }
+      });
+
+      modalClose.addEventListener('click', closeCardModal);
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modalOverlay.classList.contains('open')) {
+          closeCardModal();
+        }
+      });
+
+      const pataas = document.getElementById('pataas');
+      window.addEventListener('scroll', () => pataas.classList.toggle('litaw', window.scrollY > 420), { passive: true });
+      pataas.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+  </body>
+</html>
